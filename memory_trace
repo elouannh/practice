@@ -1,0 +1,24 @@
+Process:         algo-practice [70875]
+Path:            /Users/USER/*/algo-practice
+Load Address:    0x104fec000
+Identifier:      algo-practice
+Version:         0
+Code Type:       ARM64
+Platform:        macOS
+Parent Process:  zsh [44772]
+
+Date/Time:       2024-12-26 20:32:38.465 +0100
+Launch Time:     2024-12-26 20:32:38.285 +0100
+OS Version:      macOS 14.6 (23G80)
+Report Version:  7
+Analysis Tool:   /usr/bin/leaks
+
+Physical footprint:         817K
+Physical footprint (peak):  817K
+Idle exit:                  untracked
+----
+
+leaks Report Version: 4.0
+Process 70875: 183 nodes malloced for 14 KB
+Process 70875: 0 leaks for 0 total leaked bytes.
+
