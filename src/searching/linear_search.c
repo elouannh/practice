@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insertion_sort.c                                   :+:      :+:    :+:   */
+/*   linear_search.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 20:10:57 by ehosta            #+#    #+#             */
-/*   Updated: 2024/12/26 20:10:57 by ehosta           ###   ########.fr       */
+/*   Created: 2024/12/26 15:44:18 by ehosta            #+#    #+#             */
+/*   Updated: 2024/12/26 15:44:18 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/algos.h"
+#include "searching.h"
 
-void	insertion_sort(int *list, int length)
+int	linear_search(int *list, int value, int length)
 {
 	int	i;
-	int	j;
-	int	key;
 
-	i = 0;
+	i = -1;
 	while (++i < length)
 	{
-		key = list[i];
-		j = i - 1;
-
-		while (list[j] > key && j >= 0)
-		{
-			list[j + 1] = list[j];
-			j--;
-		}
-		list[j + 1] = key;
+		if (value == list[i])
+			return (i);
 	}
+	return (-1);
 }

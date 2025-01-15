@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binary_search.c                                    :+:      :+:    :+:   */
+/*   insertion_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 19:10:41 by ehosta            #+#    #+#             */
-/*   Updated: 2024/12/26 19:10:41 by ehosta           ###   ########.fr       */
+/*   Created: 2024/12/26 20:10:57 by ehosta            #+#    #+#             */
+/*   Updated: 2024/12/26 20:10:57 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/algos.h"
+#include "sorting.h"
 
-int	binary_search(int *list, int value, int length)
+void	insertion_sort(int *list, int length)
 {
-	int	loop;
 	int	i;
 	int	j;
-	int	m;
+	int	key;
 
-	loop = 0;
 	i = 0;
-	j = length - 1;
-	m = (j - i) / 2;
-	while (loop < 100 && i < j && list[m] != value)
+	while (++i < length)
 	{
-		if (list[m] < value)
+		key = list[i];
+		j = i - 1;
+
+		while (list[j] > key && j >= 0)
 		{
-			i = m;
-			m = i + (j - i) / 2;
+			list[j + 1] = list[j];
+			j--;
 		}
-		else
-		{
-			j = m;
-			m = (j - i) / 2;
-		}
-		loop++;
+		list[j + 1] = key;
 	}
-	if (list[m] == value)
-		return (m);
-	return (-1);
 }

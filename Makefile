@@ -1,16 +1,19 @@
-NAME		:=	algo-practice
-SRC_FILES	:=	binary_operations inary_search insertion_sort linear_search main
+NAME		:=	algos.a
+SRC_FILES	:=	binops/binary_operations.c \
+				searching/binary_search searching/linear_search.c
 SRC_DIR		:=	src
 SRC			:=	$(addprefix $(SRC_DIR)/,$(addsuffix .c,$(SRC_FILES)))
 OBJ_DIR		:=	obj
 OBJ			:=	$(addprefix $(OBJ_DIR)/,$(addsuffix .o,$(SRC_FILES)))
 CC			:=	cc
+AR			:=	ar
+ARFLAGS		:=	rcs
 CCFLAGS		:=	-Wall -Wextra -Werror
 
 all:			$(NAME)
 
 $(NAME):		$(OBJ)
-				$(CC) $(CCFLAGS) $(OBJ) -o $(NAME)
+				$(AR) $(RCS) $(NAME) $(OBJ)
 
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c Makefile include/algos.h $(OBJ_DIR)
 				$(CC) $(CCFLAGS) -c $< -o $@

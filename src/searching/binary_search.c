@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linear_search.c                                    :+:      :+:    :+:   */
+/*   binary_search.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 15:44:18 by ehosta            #+#    #+#             */
-/*   Updated: 2024/12/26 15:44:18 by ehosta           ###   ########.fr       */
+/*   Created: 2024/12/26 19:10:41 by ehosta            #+#    #+#             */
+/*   Updated: 2024/12/26 19:10:41 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/algos.h"
+#include "searching.h"
 
-int	ls_is_thousand(int elt)
+int	binary_search(int *list, int value, int length)
 {
-	return (elt == 5);
-}
-
-int	linear_search(int *list, int value, int length)
-{
+	int	loop;
 	int	i;
+	int	j;
+	int	m;
 
-	i = -1;
-	while (++i < length)
+	loop = -1;
+	i = 0;
+	j = length - 1;
+	m = (j - i) / 2;
+	while (++loop < 100 && i < j && list[m] != value)
 	{
-		if (value == list[i])
-			return (i);
+		if (list[m] < value)
+		{
+			i = m;
+			m = i + (j - i) / 2;
+		}
+		else
+		{
+			j = m;
+			m = (j - i) / 2;
+		}
 	}
+	if (list[m] == value)
+		return (m);
 	return (-1);
 }
